@@ -4,4 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.Azure.SignalR" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.SignalR" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionStockGarage.Models\GestionStockGarage.Models.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
