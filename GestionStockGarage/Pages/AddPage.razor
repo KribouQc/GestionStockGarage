@@ -27,6 +27,7 @@
             <InputNumber @bind-Value="piece.QuantiteStock" class="form-control" />
         </div>
 
+        <button type="submit">Ajouter</button>
 
     </div>
 </EditForm>
@@ -37,13 +38,15 @@
     protected override Task OnInitializedAsync()
     {
         piece = new();
+        pieces = new();
         return base.OnInitializedAsync();
     }
 
 
     private void OnSubmit()
     {
-
+        pieces.Add(piece);
     }
+
 
 }
