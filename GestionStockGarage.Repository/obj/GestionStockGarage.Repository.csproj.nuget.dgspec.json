@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj": {}
+    "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj": {}
   },
   "projects": {
-    "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj": {
+    "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj",
+        "projectUniqueName": "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj",
         "projectName": "GestionStockGarage.Repository",
-        "projectPath": "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj",
+        "projectPath": "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Repository/GestionStockGarage.Repository.csproj",
         "packagesPath": "/Users/franckymougel/.nuget/packages/",
-        "outputPath": "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Repository/obj/",
+        "outputPath": "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Repository/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "/Users/franckymougel/.config/NuGet/NuGet.Config"
         ],
@@ -55,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }

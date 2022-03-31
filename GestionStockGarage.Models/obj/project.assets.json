@@ -8,21 +8,17 @@
     "net5.0": []
   },
   "packageFolders": {
-    "/Users/franckymougel/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/Users/franckymougel/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Models/GestionStockGarage.Models.csproj",
+      "projectUniqueName": "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/GestionStockGarage.Models.csproj",
       "projectName": "GestionStockGarage.Models",
-      "projectPath": "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Models/GestionStockGarage.Models.csproj",
+      "projectPath": "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/GestionStockGarage.Models.csproj",
       "packagesPath": "/Users/franckymougel/.nuget/packages/",
-      "outputPath": "/Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Models/obj/",
+      "outputPath": "/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "/Users/franckymougel/.config/NuGet/NuGet.Config"
       ],
@@ -62,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.102/RuntimeIdentifierGraph.json"
       }
     }
   }
