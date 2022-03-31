@@ -9,8 +9,8 @@ namespace GestionStockGarage.Models
         public String Designation { get; set; }
         public string Reference { get; set; }
         public decimal PrixUnitaire { get; set; }
-        public decimal QuantiteStock { get; set; }
-        public List<string> Emplacement { get; set; }
+        public int QuantiteStock { get; set; }
+        public string Emplacement { get; set; }
         public List<Guid> IdVoiture { get; set; }
         public Guid IdFabricant { get; set; }
 

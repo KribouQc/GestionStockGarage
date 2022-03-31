@@ -5,11 +5,29 @@
 <h1>Ajout d'un article</h1>
 
 <EditForm OnValidSubmit="@OnSubmit" Model="piece">
-    <div class="form-row">
-        <div class="form-group col">
+    <div class="form">
+        <div class="form-group col-sm-4">
             <label>Référence</label>
-            <InputText @bind-Value="piece.Reference" class="form-control"/>
+            <InputText @bind-Value="piece.Reference" class="form-control" />
         </div>
+        <div class="form-group col-sm-4">
+            <label>Desigantion</label>
+            <InputText @bind-Value="piece.Designation" class="form-control" />
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Emplacement</label>
+            <InputText @bind-Value="piece.Emplacement" class="form-control" />
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Prix unitaire</label>
+            <InputNumber @bind-Value="piece.PrixUnitaire" class="form-control" />
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Quantite stock</label>
+            <InputNumber @bind-Value="piece.QuantiteStock" class="form-control" />
+        </div>
+
+
     </div>
 </EditForm>
 
