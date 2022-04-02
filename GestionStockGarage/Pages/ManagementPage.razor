@@ -6,10 +6,11 @@
 
 <table class="table">
     <thead>
-        <th>Référence</th>
-        <th>Designation</th>
-        <th>Emplacement</th>
-        <th>Quantité</th>
+    <th>Référence</th>
+    <th>Designation</th>
+    <th>Empl</th>
+    <th>Qté</th>
+    <th>Prix stock</th>
     </thead>
 
 
@@ -22,18 +23,25 @@
                 <td>@piece.Designation</td>
                 <td>@piece.Emplacement</td>
                 <td>@piece.QuantiteStock</td>
+                <td>@(piece.QuantiteStock*piece.PrixUnitaire)</td>
             </tr>
         }
 
     }
-
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Valeur du stock</td>
+        <td>@valeur</td>
+    </tr>
 </table>
 
 
 
 @code {
     private List<Piece> pieces;
-
+    private decimal valeur;
     protected override Task OnInitializedAsync()
     {
         pieces = new();
@@ -42,6 +50,12 @@
         {
             var stringFile =  File.ReadAllText("piece.json");
             pieces = JsonSerializer.Deserialize<List<Piece>>(stringFile);
+        }
+
+        valeur = 0;
+        foreach (var piece in pieces)
+        {
+            valeur += piece.QuantiteStock * piece.PrixUnitaire;
         }
 
         return base.OnInitializedAsync();
