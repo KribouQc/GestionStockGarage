@@ -10,6 +10,7 @@
     <th>Designation</th>
     <th>Empl</th>
     <th>Qté</th>
+    <th>Prix unitaire</th>
     <th>Prix stock</th>
     </thead>
 
@@ -18,23 +19,25 @@
     {
         @foreach (var piece in pieces)
         {
-            <tr>
-                <td>@piece.Reference</td>
-                <td>@piece.Designation</td>
-                <td>@piece.Emplacement</td>
-                <td>@piece.QuantiteStock</td>
-                <td>@(piece.QuantiteStock*piece.PrixUnitaire)</td>
-            </tr>
+<tr>
+    <td>@piece.Reference</td>
+    <td>@piece.Designation</td>
+    <td>@piece.Emplacement</td>
+    <td>@piece.QuantiteStock</td>
+    <td>@piece.PrixUnitaire</td>
+    <td>@(piece.QuantiteStock*piece.PrixUnitaire)</td>
+</tr>
         }
 
     }
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>Valeur du stock</td>
-        <td>@valeur</td>
-    </tr>
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Valeur du stock</td>
+    <td>@valeur</td>
+</tr>
 </table>
 
 
