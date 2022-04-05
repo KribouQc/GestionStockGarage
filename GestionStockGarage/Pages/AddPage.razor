@@ -1,6 +1,9 @@
 ﻿@page "/addpage"
 
 @using GestionStockGarage.Models
+@using System.IO
+@using System.Text.Json
+
 
 <h1>Ajout d'un article</h1>
 
@@ -11,7 +14,7 @@
             <InputText @bind-Value="piece.Reference" class="form-control" />
         </div>
         <div class="form-group col-sm-4">
-            <label>Desigantion</label>
+            <label>Designation</label>
             <InputText @bind-Value="piece.Designation" class="form-control" />
         </div>
         <div class="form-group col-sm-4">
@@ -27,6 +30,7 @@
             <InputNumber @bind-Value="piece.QuantiteStock" class="form-control" />
         </div>
 
+        <button type="submit">Ajouter</button>
 
     </div>
 </EditForm>
@@ -37,13 +41,27 @@
     protected override Task OnInitializedAsync()
     {
         piece = new();
+        pieces = new();
+
+        pieces = new();
+
+        if (File.Exists("Piece.json"))
+        {
+            var stringFile = File.ReadAllText("piece.json");
+            pieces = JsonSerializer.Deserialize<List<Piece>>(stringFile);
+        }
         return base.OnInitializedAsync();
+
     }
 
 
     private void OnSubmit()
     {
-
+        pieces.Add(piece);
+        string stringJson = JsonSerializer.Serialize<List<Piece>>(pieces);
+        File.WriteAllText("piece.json", stringJson);
+        piece = new();
     }
+
 
 }

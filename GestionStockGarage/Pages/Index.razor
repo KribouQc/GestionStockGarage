@@ -1,4 +1,51 @@
 ﻿@page "/"
 
-<h1>Creation d'un article</h1>
+@using System.Text.Json
+@using System.IO 
 
+<h1>Visualisation du Stock</h1>
+
+<table class="table">
+    <thead>
+    <th>Référence</th>
+    <th>Designation</th>
+    <th>Empl</th>
+    <th>Qté</th>
+    </thead>
+
+
+    @if (pieces != null)
+    {
+        @foreach (var piece in pieces)
+        {
+            <tr>
+                <td>@piece.Reference</td>
+                <td>@piece.Designation</td>
+                <td>@piece.Emplacement</td>
+                <td>@piece.QuantiteStock</td>
+            </tr>
+        }
+
+    }
+
+</table>
+
+
+
+@code {
+    private List<Piece> pieces;
+
+    protected override Task OnInitializedAsync()
+    {
+        pieces = new();
+
+        if (File.Exists("Piece.json"))
+        {
+            var stringFile = File.ReadAllText("piece.json");
+            pieces = JsonSerializer.Deserialize<List<Piece>>(stringFile);
+        }
+
+        return base.OnInitializedAsync();
+
+    }
+}
