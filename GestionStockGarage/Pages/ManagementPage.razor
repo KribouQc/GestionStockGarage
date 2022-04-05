@@ -3,16 +3,18 @@
 @using System.Text.Json
 
 <h1>Gestion du stock</h1>
-
+<p>Valeur du stock : @valeur</p>
 <table class="table">
-    <thead>
-    <th>Référence</th>
-    <th>Designation</th>
-    <th>Empl</th>
-    <th>Qté</th>
-    <th>Prix unitaire</th>
-    <th>Prix stock</th>
-    </thead>
+    <tr>
+        <th>Référence</th>
+        <th>Designation</th>
+        <th>Empl</th>
+        <th>Qté</th>
+        <th>Prix unitaire</th>
+        <th>Prix stock</th>
+        <th></th>
+        <th></th>
+    </tr>
 
 
     @if (pieces != null)
@@ -26,18 +28,12 @@
     <td>@piece.QuantiteStock</td>
     <td>@piece.PrixUnitaire</td>
     <td>@(piece.QuantiteStock*piece.PrixUnitaire)</td>
+    <td><button @onclick="e => Supprimer(piece)">Supprimer</button></td>
+    <td><button @onclick="e => Modifier(piece.Id)">Modifier</button></td>
 </tr>
         }
 
     }
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Valeur du stock</td>
-    <td>@valeur</td>
-</tr>
 </table>
 
 
@@ -64,4 +60,14 @@
         return base.OnInitializedAsync();
 
     }
+
+    private void Supprimer(Piece piece)
+    {
+        pieces.Remove(piece);
+    }
+
+    private void Modifier(Guid id)
+        {
+
+        }
 }
