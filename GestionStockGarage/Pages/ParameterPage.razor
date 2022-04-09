@@ -1,0 +1,51 @@
+﻿@page "/parameterPage"
+
+@using System.IO
+@using System.Text.Json
+
+<h3>Parametrage</h3>
+<div class="container px-4">
+    <div class="row px-5">
+        <div class="col">
+            <div class="p-3 border bg-light">
+                <InputFile id="filePicker" OnChange="ViewFile" />
+            </div>
+            <div>@resultat</div>
+        </div>
+    </div>
+</div>
+@code {
+    private string nomFichier = " ";
+    private List<Piece> inventaire = new();
+    private string resultat = "";
+
+    private async Task ViewFile(InputFileChangeEventArgs e)
+    {
+        resultat = "En cours de chargement";
+
+        using (var streamReader = new StreamReader(e.File.OpenReadStream()))
+        {
+            string lineInventaire;
+
+            //entete
+            lineInventaire = await streamReader.ReadLineAsync();
+            while ((lineInventaire = await streamReader.ReadLineAsync()) != null)
+            {
+                Piece piece = new();
+                var item = lineInventaire.Split(';');
+                piece.Designation = item[0];
+                piece.Reference = item[2];
+                piece.QuantiteStock = int.Parse(item[3]);
+                piece.PrixUnitaire = decimal.Parse(item[4]);
+                piece.Emplacement = item[5];
+                inventaire.Add(piece);
+            }
+
+        }
+
+        //creation du fichier json.
+        string stringJson = JsonSerializer.Serialize<List<Piece>>(inventaire);
+        File.WriteAllText("piece.json", stringJson);
+        resultat   = "Chargement terminé";
+    }
+}

@@ -28,8 +28,8 @@
     <td>@piece.QuantiteStock</td>
     <td>@piece.PrixUnitaire</td>
     <td>@(piece.QuantiteStock*piece.PrixUnitaire)</td>
-    <td><button @onclick="e => Supprimer(piece)">Supprimer</button></td>
-    <td><button @onclick="e => Modifier(piece.Id)">Modifier</button></td>
+    <td><button @onclick="e => Supprimer(piece)" class="btn btn-warning" >Supprimer</button></td>
+    <td><button @onclick="e => Modifier(piece.Id)" class="btn btn-primary">Modifier</button></td>
 </tr>
         }
 
