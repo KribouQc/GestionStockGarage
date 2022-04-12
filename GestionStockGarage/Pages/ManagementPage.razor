@@ -2,6 +2,8 @@
 @using System.IO
 @using System.Text.Json
 
+@inject GestionStockGarage.Repository.IStockRepository stock
+
 <h1>Gestion du stock</h1>
 <p>Valeur du stock : @valeur</p>
 <table class="table">
@@ -45,13 +47,10 @@
     {
         pieces = new();
 
-        if (File.Exists("Piece.json"))
-        {
-            var stringFile =  File.ReadAllText("piece.json");
-            pieces = JsonSerializer.Deserialize<List<Piece>>(stringFile);
-        }
+        pieces = stock.GetPieces();
 
         valeur = 0;
+
         foreach (var piece in pieces)
         {
             valeur += piece.QuantiteStock * piece.PrixUnitaire;
@@ -63,11 +62,11 @@
 
     private void Supprimer(Piece piece)
     {
-        pieces.Remove(piece);
+        pieces = stock.RemovePiece(piece);
     }
 
     private void Modifier(Guid id)
-        {
+    {
 
-        }
+    }
 }

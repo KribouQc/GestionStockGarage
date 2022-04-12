@@ -9,11 +9,12 @@ namespace GestionStockGarage.Repository
     public class StockJson:IStockRepository
     {
         private List<Piece> stock;
+        private string nomFichier = "piece.json";
 
         public StockJson()
         {
             stock = new();
-            string nomFichier = "piece.json";
+            
 
             if (File.Exists(nomFichier))
             {
@@ -25,7 +26,9 @@ namespace GestionStockGarage.Repository
 
         public void AddPiece(Piece piece)
         {
-            throw new NotImplementedException();
+            stock.Add(piece);
+            string stringJson = JsonSerializer.Serialize<List<Piece>>(stock);
+            File.WriteAllText(nomFichier, stringJson);
         }
 
         public Piece GetPiece(Guid id)
@@ -33,8 +36,22 @@ namespace GestionStockGarage.Repository
             throw new NotImplementedException();
         }
 
+
+
         public List<Piece> GetPieces()
         {
+            return stock;
+        }
+
+        public void InitStock(List<Piece> inventaire)
+        {
+            string stringJson = JsonSerializer.Serialize<List<Piece>>(inventaire);
+            File.WriteAllText(nomFichier, stringJson);
+        }
+
+        public List<Piece> RemovePiece(Piece piece)
+        {
+            stock.Remove(piece);
             return stock;
         }
     }

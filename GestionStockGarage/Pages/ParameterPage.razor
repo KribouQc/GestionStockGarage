@@ -2,6 +2,7 @@
 
 @using System.IO
 @using System.Text.Json
+@inject GestionStockGarage.Repository.IStockRepository stock
 
 <h3>Parametrage</h3>
 <div class="container px-4">
@@ -50,8 +51,7 @@
         }
 
         //creation du fichier json.
-        string stringJson = JsonSerializer.Serialize<List<Piece>>(inventaire);
-        File.WriteAllText("piece.json", stringJson);
+        
         resultat   = "Chargement terminé";
     }
 }

@@ -3,7 +3,7 @@
 @using GestionStockGarage.Models
 @using System.IO
 @using System.Text.Json
-
+@inject GestionStockGarage.Repository.IStockRepository stock
 
 <h1>Ajout d'un article</h1>
 
@@ -43,13 +43,8 @@
         piece = new();
         pieces = new();
 
-        pieces = new();
+        pieces = stock.GetPieces();
 
-        if (File.Exists("Piece.json"))
-        {
-            var stringFile = File.ReadAllText("piece.json");
-            pieces = JsonSerializer.Deserialize<List<Piece>>(stringFile);
-        }
         return base.OnInitializedAsync();
 
     }
@@ -57,9 +52,8 @@
 
     private void OnSubmit()
     {
-        pieces.Add(piece);
-        string stringJson = JsonSerializer.Serialize<List<Piece>>(pieces);
-        File.WriteAllText("piece.json", stringJson);
+        stock.AddPiece(piece);
+        
         piece = new();
     }
 
