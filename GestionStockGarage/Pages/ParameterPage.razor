@@ -34,9 +34,15 @@
                 Piece piece = new();
                 var item = lineInventaire.Split(';');
                 piece.Designation = item[0];
+
                 piece.Reference = item[2];
-                piece.QuantiteStock = int.Parse(item[3]);
-                piece.PrixUnitaire = decimal.Parse(item[4]);
+                int qntStock;
+                if(int.TryParse(item[3],out qntStock))
+                    piece.QuantiteStock = qntStock;
+
+                decimal prix;
+                if(decimal.TryParse(item[4],out prix))
+                    piece.PrixUnitaire = prix;
                 piece.Emplacement = item[5];
                 inventaire.Add(piece);
             }

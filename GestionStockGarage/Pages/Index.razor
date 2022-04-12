@@ -4,19 +4,23 @@
 @using System.IO 
 
 <h1>Visualisation du Stock</h1>
+<br />
+    <label>Recherche</label>
+<input  @oninput="Rechercher" />
 
+<br />
 <table class="table">
-    <thead>
-    <th>Référence</th>
-    <th>Designation</th>
-    <th>Empl</th>
-    <th>Qté</th>
-    </thead>
+    <tr>
+        <th>Référence</th>
+        <th>Designation</th>
+        <th>Empl</th>
+        <th>Qté</th>
+    </tr>
 
 
-    @if (pieces != null)
+    @if (piecesTriees != null)
     {
-        @foreach (var piece in pieces)
+        @foreach (var piece in piecesTriees)
         {
             <tr>
                 <td>@piece.Reference</td>
@@ -34,6 +38,8 @@
 
 @code {
     private List<Piece> pieces;
+    private List<Piece> piecesTriees;
+    private string champRecherche = "";
 
     protected override Task OnInitializedAsync()
     {
@@ -43,9 +49,30 @@
         {
             var stringFile = File.ReadAllText("piece.json");
             pieces = JsonSerializer.Deserialize<List<Piece>>(stringFile);
+            piecesTriees = pieces;
         }
 
         return base.OnInitializedAsync();
+
+    }
+
+    private void Rechercher(ChangeEventArgs args)
+    {
+
+        string value = (string)args.Value;
+
+        if (value == "")
+        {
+            piecesTriees = pieces;
+        }
+        else
+        {
+            piecesTriees = pieces.Where(p => p.Reference.Contains(value)).ToList();
+        }
+    }
+
+    private void RechercherValue()
+    {
 
     }
 }
