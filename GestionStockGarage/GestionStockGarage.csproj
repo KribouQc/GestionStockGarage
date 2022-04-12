@@ -14,6 +14,9 @@
     <ProjectReference Include="..\GestionStockGarage.Models\GestionStockGarage.Models.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\GestionStockGarage.Repository\GestionStockGarage.Repository.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Remove="piece.json" />

@@ -1,7 +1,9 @@
 ﻿@page "/"
 
 @using System.Text.Json
-@using System.IO 
+@using System.IO
+
+@inject GestionStockGarage.Repository.IStockRepository stock
 
 <h1>Visualisation du Stock</h1>
 <br />
@@ -41,16 +43,15 @@
     private List<Piece> piecesTriees;
     private string champRecherche = "";
 
+
     protected override Task OnInitializedAsync()
     {
         pieces = new();
 
-        if (File.Exists("Piece.json"))
-        {
-            var stringFile = File.ReadAllText("piece.json");
-            pieces = JsonSerializer.Deserialize<List<Piece>>(stringFile);
-            piecesTriees = pieces;
-        }
+        pieces = stock.GetPieces();
+
+        piecesTriees = pieces;
+        
 
         return base.OnInitializedAsync();
 
