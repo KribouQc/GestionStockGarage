@@ -10,15 +10,3 @@
 /Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.dll
 /Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/ref/GestionStockGarage.Models.dll
 /Users/franckymougel/Projects/GestionStockGarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.pdb
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/bin/Debug/net5.0/GestionStockGarage.Models.deps.json
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/bin/Debug/net5.0/GestionStockGarage.Models.dll
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/bin/Debug/net5.0/ref/GestionStockGarage.Models.dll
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/bin/Debug/net5.0/GestionStockGarage.Models.pdb
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.csproj.AssemblyReference.cache
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.GeneratedMSBuildEditorConfig.editorconfig
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.AssemblyInfoInputs.cache
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.AssemblyInfo.cs
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.csproj.CoreCompileInputs.cache
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.dll
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/ref/GestionStockGarage.Models.dll
-/Users/franckymougel/Projects/gestgarage/GestionStockGarage/GestionStockGarage.Models/obj/Debug/net5.0/GestionStockGarage.Models.pdb
