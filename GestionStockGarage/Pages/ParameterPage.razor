@@ -2,6 +2,7 @@
 
 @using System.IO
 @using System.Text.Json
+@using System.Globalization 
 @inject GestionStockGarage.Repository.IStockRepository stock
 
 <h3>Parametrage</h3>
@@ -42,7 +43,9 @@
                     piece.QuantiteStock = qntStock;
 
                 decimal prix;
-                if(decimal.TryParse(item[4],out prix))
+                NumberStyles style;
+                style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                if (decimal.TryParse(item[4],style ,new CultureInfo("fr-FR"),out prix))
                     piece.PrixUnitaire = prix;
                 piece.Emplacement = item[5];
                 inventaire.Add(piece);
@@ -51,7 +54,9 @@
         }
 
         //creation du fichier json.
-        
+        stock.InitStock(inventaire);
+
+
         resultat   = "Chargement terminé";
     }
 }

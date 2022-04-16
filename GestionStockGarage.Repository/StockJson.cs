@@ -45,8 +45,12 @@ namespace GestionStockGarage.Repository
 
         public void InitStock(List<Piece> inventaire)
         {
+           
             string stringJson = JsonSerializer.Serialize<List<Piece>>(inventaire);
-            File.WriteAllText(nomFichier, stringJson);
+            File.WriteAllText( nomFichier, stringJson);
+            //reiniti de stock
+            stock = JsonSerializer.Deserialize<List<Piece>>(stringJson);
+
         }
 
         public List<Piece> RemovePiece(Piece piece)
