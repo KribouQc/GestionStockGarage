@@ -1,4 +1,5 @@
 ﻿@page "/addpage"
+@page "/modif/{IdPiece}"
 
 @using GestionStockGarage.Models
 @using System.IO
@@ -6,6 +7,12 @@
 @inject GestionStockGarage.Repository.IStockRepository stock
 
 <h1>Ajout d'un article</h1>
+@if (!string.IsNullOrEmpty(valeurAction))
+{
+    <br />
+    <div class="alert alert-success" role="alert">@valeurAction</div>
+
+}
 
 <EditForm OnValidSubmit="@OnSubmit" Model="piece">
     <div class="form">
@@ -27,23 +34,40 @@
         </div>
         <div class="form-group col-sm-4">
             <label>Quantite stock</label>
-            <InputNumber @bind-Value="piece.QuantiteStock" class="form-control" />
+            <InputNumber @bind-Value="piece.QuantiteStock" class="form-control" disabled="@modification" />
         </div>
 
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+
+        <button type="submit" class="btn btn-primary">@valeurButton</button>
 
     </div>
 </EditForm>
 
+
 @code {
     private Piece piece;
     private List<Piece> pieces = new List<Piece>();
+    private bool modification = false;
+    private string valeurButton;
+    private string valeurAction = "";
+
+    [Parameter]
+    public string IdPiece { get; set; }
+
+
     protected override Task OnInitializedAsync()
     {
         piece = new();
         pieces = new();
+        valeurButton = "Ajouter";
 
-        pieces = stock.GetPieces();
+        if (!string.IsNullOrEmpty(IdPiece))
+        {
+            var guid = Guid.Parse(IdPiece);
+            piece = stock.GetPiece(guid);
+            valeurButton = "Modifier";
+            modification = true;
+        }
 
         return base.OnInitializedAsync();
 
@@ -52,9 +76,16 @@
 
     private void OnSubmit()
     {
-        stock.AddPiece(piece);
-        
-        piece = new();
+        if (!modification)
+        {
+            stock.AddPiece(piece);
+            piece = new();
+        }
+        else
+        {
+            stock.ChangePiece(piece);
+            valeurAction = "Modification éffectuée";
+        }
     }
 
 
