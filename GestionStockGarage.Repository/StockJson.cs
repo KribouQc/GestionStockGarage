@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using GestionStockGarage.Models;
 
@@ -31,9 +32,18 @@ namespace GestionStockGarage.Repository
             File.WriteAllText(nomFichier, stringJson);
         }
 
+        public void ChangePiece(Piece piece)
+        {
+            var oldPiece = stock.FirstOrDefault(p => p.Id == piece.Id);
+            oldPiece = piece;
+            string stringJson = JsonSerializer.Serialize<List<Piece>>(stock);
+            File.WriteAllText(nomFichier, stringJson);
+
+        }
+
         public Piece GetPiece(Guid id)
         {
-            throw new NotImplementedException();
+            return stock.FirstOrDefault(p => p.Id == id);
         }
 
 

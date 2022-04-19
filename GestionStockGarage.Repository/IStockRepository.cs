@@ -11,5 +11,6 @@ namespace GestionStockGarage.Repository
         public Piece GetPiece(Guid id);
         public List<Piece> RemovePiece(Piece piece);
         public void InitStock(List<Piece> inventaire);
+        public void ChangePiece(Piece piece);
     }
 }
